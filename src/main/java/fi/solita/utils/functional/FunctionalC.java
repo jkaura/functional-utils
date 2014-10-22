@@ -104,11 +104,11 @@ public abstract class FunctionalC extends FunctionalS {
         return map(group((CharSequence)xs), Transformers.toString);
     }
     
-    public static final <T> Iterable<CharSequence> group(Apply<Tuple2<Character,Character>, Boolean> comparator, CharSequence xs) {
+    public static final Iterable<CharSequence> group(Apply<Tuple2<Character,Character>, Boolean> comparator, CharSequence xs) {
         return map(FunctionalImpl.group(it(xs), comparator), iterable2charSeq);
     }
     
-    public static final <T> Iterable<String> group(Apply<Tuple2<Character,Character>, Boolean> comparator, String xs) {
+    public static final Iterable<String> group(Apply<Tuple2<Character,Character>, Boolean> comparator, String xs) {
         return map(group(comparator, (CharSequence)xs), Transformers.toString);
     }
     
@@ -202,11 +202,11 @@ public abstract class FunctionalC extends FunctionalS {
     
     
     
-    public static final <T> Pair<CharSequence, CharSequence> span(Apply<Character, Boolean> predicate, CharSequence xs) {
+    public static final Pair<CharSequence, CharSequence> span(Apply<Character, Boolean> predicate, CharSequence xs) {
         return Pair.of(takeWhile(predicate, xs), dropWhile(predicate, xs));
     }
     
-    public static final <T> Pair<String, String> span(Apply<Character, Boolean> predicate, String xs) {
+    public static final Pair<String, String> span(Apply<Character, Boolean> predicate, String xs) {
         Pair<CharSequence,CharSequence> span = span(predicate, (CharSequence)xs);
         return Pair.of(span.left.toString(), span.right.toString());
     }

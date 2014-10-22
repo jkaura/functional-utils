@@ -72,7 +72,7 @@ public abstract class Transformers {
           };
       }
 
-    public static final <T> Transformer<String, String> prefix(final int chars) {
+    public static final Transformer<String, String> prefix(final int chars) {
         if (chars <= 0) {
             throw new IllegalArgumentException("chars must be >= 1");
         }
